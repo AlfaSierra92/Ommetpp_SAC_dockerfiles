@@ -16,4 +16,4 @@ jobs:
     - uses: actions/checkout@v3
     - name: Build the Docker image
       #run: docker build . --file omnetpp-gui/Dockerfile --tag my-image-name:$(date +%s)
-      run: docker build --file omnetpp-gui/Dockerfile --build-arg VERSION=$VERSION --tag my-image-name:$(date +%s) -t ghcr.io/omnetpp/omnetpp-gui:u22.05-$VERSION .
+      run: docker build --file omnetpp-gui/Dockerfile --build-arg VERSION=6.0.1 --tag my-image-name:$(date +%s) -t ghcr.io/omnetpp/omnetpp-gui:u22.05-$VERSION .
