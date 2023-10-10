@@ -43,8 +43,8 @@ RUN chmod 775 /root/ && \
     sed 's!-Dosgi.instance.area.default=$IDEDIR/../samples!-Duser.home=/root/models -Dosgi.instance.area=@user.home!' bin/omnetpp.bak >bin/omnetpp && \
     rm bin/omnetpp.bak && chmod +x bin/omnetpp
     
-RUN git clone https://github.com/rlancellotti/omnet_analyzer.git
-WORKDIR /root/omnetpp/omnet_analyzer
+RUN git clone https://github.com/rlancellotti/omnet_analyzer.git && cp ./omnet_analyzer/* .
+#WORKDIR /root/omnetpp/omnet_analyzer
 RUN . /root/omnetpp/setenv && python3 -m pip install -r requirements.txt && \
     python3 install_tools.py
 
