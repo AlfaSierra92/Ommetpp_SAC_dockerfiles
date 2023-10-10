@@ -2,8 +2,8 @@
 Custom Omnetpp docker container built for SAC course @ UniMore.
 
 ## How-to
-Launch `./build` to build Docker image. 
-To execute omnetpp, please launch `~/omnetpp/run` and execute `omnetpp` command.
+Launch `./omnetpp-gui/build` to build Docker image. 
+To execute omnetpp, please launch `~/omnetpp/run` and execute `omnetpp` command into the shell.
 
 **Remember to choose /root/models folder as default Workspace!**
 
