@@ -22,7 +22,7 @@ ENV PATH /root/omnetpp/bin:$PATH
 # remove unused files and build
 RUN . ./setenv && \
     ./configure WITH_LIBXML=yes WITH_OSG=no WITH_OSGEARTH=no && \
-    make -j $(nproc) MODE=debug base
+    make -j $(nproc) MODE=debug base && \
     rm -r doc out test samples misc config.log config.status
 
 # second stage - copy only the final binaries (to get rid of the 'out' folder and reduce the image size)
