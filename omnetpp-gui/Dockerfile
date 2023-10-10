@@ -45,7 +45,7 @@ RUN chmod 775 /root/ && \
     
 RUN git clone https://github.com/rlancellotti/omnet_analyzer.git
 WORKDIR /root/omnetpp/omnet_analyzer
-RUN python3 -m pip install -r requirements.txt && \
+RUN . /root/omnetpp/setenv && python3 -m pip install -r requirements.txt && \
     python3 install_tools.py
 
 WORKDIR /root/models
