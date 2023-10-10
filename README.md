@@ -1,4 +1,15 @@
-# dockerfiles
+# Ommetpp SAC dockerfiles
+Custom Omnetpp docker container built for SAC course @ UniMore.
+
+## How-to
+Launch `./build` to build Docker image. 
+To execute omnetpp, please launch `~/omnetpp/opp_gui_docker_shell` and execute `omnetpp` command.
+
+**Remember to choose /root/models folder as default Workspace!**
+
+Are available various samples in the `./omnetpp/samples` host folder; feel free to use it. Just use debug mode when building it.
+
+## Notes
 Source files for building OMNeT++ related docker images
 
  - omnetpp-base -> ubuntu based image containing all required packages to build and use OMNeT++ on the command line (clang compiler, make etc.)

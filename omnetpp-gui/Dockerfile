@@ -5,7 +5,7 @@ LABEL maintainer="Rudolf Hornig <rudi@omnetpp.org>"
 
 RUN apt-get update -y && apt-get install -y --no-install-recommends qtbase5-dev qtchooser\
                           qt5-qmake qtbase5-dev-tools libqt5opengl5-dev libwebkit2gtk-4.0-37\
-                          git libsqlite0-dev libsqlite3-dev sqlitebrowser
+                          git libsqlite0-dev libsqlite3-dev sqlitebrowser adwaita-icon-theme libqt5svg5 libqt5svg5-dev
 
 # first stage - build OMNeT++ with GUI
 FROM base as builder
@@ -22,8 +22,8 @@ ENV PATH /root/omnetpp/bin:$PATH
 # remove unused files and build
 RUN . ./setenv && \
     ./configure WITH_LIBXML=yes WITH_OSG=no WITH_OSGEARTH=no && \
-    make -j $(nproc) MODE=release base && \
-    rm -r doc out test samples misc config.log config.status
+    make -j $(nproc) MODE=debug base
+    #rm -r doc out test samples misc config.log config.status
 
 # second stage - copy only the final binaries (to get rid of the 'out' folder and reduce the image size)
 FROM base
