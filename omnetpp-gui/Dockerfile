@@ -4,7 +4,8 @@ LABEL maintainer="Rudolf Hornig <rudi@omnetpp.org>"
 
 
 RUN apt-get update -y && apt-get install -y --no-install-recommends qtbase5-dev qtchooser\
-                          qt5-qmake qtbase5-dev-tools libqt5opengl5-dev libwebkit2gtk-4.0-37
+                          qt5-qmake qtbase5-dev-tools libqt5opengl5-dev libwebkit2gtk-4.0-37\
+                          git libsqlite0-dev sqlitebrowser
 
 # first stage - build OMNeT++ with GUI
 FROM base as builder
@@ -41,6 +42,12 @@ RUN chmod 775 /root/ && \
     mv bin/omnetpp bin/omnetpp.bak && \
     sed 's!-Dosgi.instance.area.default=$IDEDIR/../samples!-Duser.home=/root/models -Dosgi.instance.area=@user.home!' bin/omnetpp.bak >bin/omnetpp && \
     rm bin/omnetpp.bak && chmod +x bin/omnetpp
+    
+RUN git clone https://github.com/rlancellotti/omnet_analyzer.git
+WORKDIR /root/omnetpp/omnet_analyzer
+RUN python3 -m pip install -r requirements.txt && \
+    python3 install_tools.py
+
 WORKDIR /root/models
 RUN echo 'PS1="omnetpp-gui-$OPP_VER:\w\$ "' >> /root/.bashrc && chmod +x /root/.bashrc && \
     touch /root/.hushlogin
