@@ -5,7 +5,7 @@ LABEL maintainer="Rudolf Hornig <rudi@omnetpp.org>"
 
 RUN apt-get update -y && apt-get install -y --no-install-recommends qtbase5-dev qtchooser\
                           qt5-qmake qtbase5-dev-tools libqt5opengl5-dev libwebkit2gtk-4.0-37\
-                          git libsqlite0-dev sqlitebrowser
+                          git libsqlite0-dev libsqlite3-dev sqlitebrowser
 
 # first stage - build OMNeT++ with GUI
 FROM base as builder
