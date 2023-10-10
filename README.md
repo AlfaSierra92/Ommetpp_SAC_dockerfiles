@@ -8,6 +8,7 @@ To execute omnetpp, please launch `~/omnetpp/run` and execute `omnetpp` command 
 **Remember to choose /root/models folder as default Workspace!**
 
 Are available various samples in the `./omnetpp/samples` host folder; feel free to use it. Just use debug mode when building it.
+Other stuff is useless at the moment.
 
 ## Notes
 Source files for building OMNeT++ related docker images
