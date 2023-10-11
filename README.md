@@ -1,4 +1,7 @@
 # Ommetpp SAC dockerfiles
+![GitHub CI build status badge](https://github.com/AlfaSierra92/Ommetpp_SAC_dockerfiles/actions/workflows/docker-image.yml/badge.svg)
+![amd64](https://img.shields.io/jenkins/s/https/doi-janky.infosiftr.net/job/multiarch/job/amd64/job/nextcloud.svg?label=amd64)
+
 Custom Omnetpp docker container built for SAC course @ UniMore.
 
 ## How-to
