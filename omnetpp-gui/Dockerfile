@@ -50,7 +50,7 @@ RUN . /root/omnetpp/setenv && python3 -m pip install -r requirements.txt && \
 
 WORKDIR /root/models
 RUN echo 'PS1="omnetpp-gui-$OPP_VER:\w\$ "' >> /root/.bashrc && chmod +x /root/.bashrc && \
-    touch /root/.hushlogin
+    touch /root/.hushlogin && echo 'export PATH="/root/bin:$PATH"' >> ~/.bashrc
 ENV HOME=/root/
 ENV XDG_RUNTIME_DIR=/tmp/xdg-runtime-root
 CMD ["/bin/bash", "--init-file", "/root/.bashrc"]
