@@ -1,5 +1,5 @@
 #!/bin/sh
-VERSION=6.0.1
+VERSION=6.0.2
 docker build --build-arg VERSION=$VERSION -t ghcr.io/omnetpp/omnetpp-gui:u22.05-$VERSION-SAC . && mkdir -p ~/omnetpp && cp ./opp_gui_docker_shell ~/omnetpp/run && chmod +x ~/omnetpp/run && cd ~/omnetpp && git clone https://github.com/omnetpp/omnetpp.git && mv omnetpp/samples . && rm -rf omnetpp
 
 # Go to ~/omnetpp and launch ./opp_gui_docker_shell
