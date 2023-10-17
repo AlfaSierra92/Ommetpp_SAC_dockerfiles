@@ -1,6 +1,6 @@
 FROM ghcr.io/omnetpp/cross-compilers:ubuntu22.04-macos12.3-230503
 
-ARG OMNETPP_VERSION=6.0.1
+ARG OMNETPP_VERSION=6.0.2
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
                         wget ca-certificates bison flex \
