@@ -2,8 +2,10 @@ FROM ghcr.io/omnetpp/omnetpp-base:u22.04-1 as base
 
 LABEL maintainer="Rudolf Hornig <rudi@omnetpp.org>"
 
-
-RUN apt-get update -y && apt-get install -y --no-install-recommends qtbase5-dev qtchooser\
+# setenv only supports bash
+RUN echo "dash dash/sh boolean false" | debconf-set-selections
+RUN DEBIAN_FRONTEND=noninteractive dpkg-reconfigure dash
+RUN apt-get update -y && apt-get upgrade -y && apt-get install -y --no-install-recommends qtbase5-dev qtchooser\
                           qt5-qmake qtbase5-dev-tools libqt5opengl5-dev libwebkit2gtk-4.0-37\
                           git libsqlite0-dev libsqlite3-dev sqlitebrowser adwaita-icon-theme libqt5svg5 libqt5svg5-dev
 
